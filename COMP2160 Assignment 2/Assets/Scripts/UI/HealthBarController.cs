@@ -10,19 +10,14 @@ public class HealthBarController : MonoBehaviour
     private int minHP;
     private int maxHP;
 
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
         healthBar = GetComponent<Slider>();
         maxHP = (int)healthBar.maxValue;
         minHP = (int)healthBar.minValue;
 
         currentHP = maxHP;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
