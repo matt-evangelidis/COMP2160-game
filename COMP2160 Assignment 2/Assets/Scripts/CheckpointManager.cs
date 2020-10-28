@@ -33,16 +33,6 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    /*    public static void HitCheckPoint(Checkpoint checkpoint)
-        {
-            if (checkpoint.Current)
-            {
-                checkpoint.TimeStored = Time.time;
-                Debug.Log("Checkpoint Hit At Time: " + checkpoint.TimeStored);
-                checkpoint.Current = false;
-            }
-        }*/
-
     public void SetCheckpoint()
     {
         checkpointArray[counter].Current = true;
@@ -52,7 +42,7 @@ public class CheckpointManager : MonoBehaviour
 
     public void NextCheckpoint()
     {
-        if (counter >= checkpointArray.Length)
+        if (counter >= checkpointArray.Length -1)
         {
             Debug.Log("Counter: " + counter);
             FindObjectOfType<MenuHandler>().GameOver();
