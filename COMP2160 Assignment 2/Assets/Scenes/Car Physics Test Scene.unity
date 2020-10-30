@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 937481027}
   - component: {fileID: 937481028}
   m_Layer: 0
-  m_Name: Analytics
+  m_Name: AnalyticsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eec78dfc0e02d248a8ac338bb1013f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: {fileID: 0}
 --- !u!1001 &1109590936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -569,5 +570,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8965388736976077051, guid: 2ed96f17a059ba14488be8a35180c416,
+        type: 3}
+      propertyPath: analytics
+      value: 
+      objectReference: {fileID: 937481028}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed96f17a059ba14488be8a35180c416, type: 3}

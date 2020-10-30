@@ -446,6 +446,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &977144962 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1786135870176543346, guid: dd468b25f9a8b304ca7a510b88a6908d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1786135870942708827}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187d68197b61fed4883e3ca07ecb7548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1136639020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2018240842554347982, guid: ccfb5105ef373f844b32294205fc3721,
@@ -649,6 +661,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 203853028}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1582717820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1582717822}
+  - component: {fileID: 1582717821}
+  m_Layer: 0
+  m_Name: AnalyticsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1582717821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582717820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eec78dfc0e02d248a8ac338bb1013f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: {fileID: 977144962}
+--- !u!4 &1582717822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582717820}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 87.80482, y: 18.55441, z: 83.26101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1647643593
 GameObject:
   m_ObjectHideFlags: 0
