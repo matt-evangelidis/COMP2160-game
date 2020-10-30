@@ -57,6 +57,12 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+		// The player is the only object checkpoints can collide with, so we can safely use GetComponent here without any checks
+		if(current)
+		{
+			other.gameObject.GetComponent<Health>().Heal(10);
+		}
+		
         HitCheckPoint();
     }
 }

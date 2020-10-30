@@ -9,6 +9,8 @@ public class HealthBarController : MonoBehaviour
     private int currentHP;
     private int minHP;
     private int maxHP;
+	
+	public Health health;
 
     // Start is called before the first frame update
     void Start()
@@ -17,13 +19,13 @@ public class HealthBarController : MonoBehaviour
         maxHP = (int)healthBar.maxValue;
         minHP = (int)healthBar.minValue;
 
-        currentHP = maxHP;
+        healthBar.value = health.CurrentHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthBar.value = currentHP;
+        healthBar.value = health.CurrentHealth;
 
         if (Input.GetKey(KeyCode.UpArrow))
         {

@@ -21,7 +21,7 @@ public class Drive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Debug.Log(Input.GetAxis("Forward"));
+		//Debug.Log(Input.GetAxis("Forward"));
     }
 	
 	void FixedUpdate()
@@ -45,11 +45,11 @@ public class Drive : MonoBehaviour
 			
 			if(Input.GetButton("Left"))
 			{
-				rigidbody.AddRelativeTorque(Vector3.up * -rotation * Mathf.Max(0.6f, Input.GetAxis("Backward")) * Time.deltaTime, ForceMode.Acceleration);
+				rigidbody.AddRelativeTorque(Vector3.up * rotation * Mathf.Max(0.6f, Input.GetAxis("Backward")) * Time.deltaTime, ForceMode.Acceleration);
 			}
 			else if(Input.GetButton("Right"))
 			{
-				rigidbody.AddRelativeTorque(Vector3.up * rotation * Mathf.Max(0.6f, Input.GetAxis("Backward")) * Time.deltaTime, ForceMode.Acceleration);
+				rigidbody.AddRelativeTorque(Vector3.up * -rotation * Mathf.Max(0.6f, Input.GetAxis("Backward")) * Time.deltaTime, ForceMode.Acceleration);
 			}
 		}
 		else //when not moving in a direction, take the rotation vector of the object, invert it and move it back over time. Take this vector, flatten the y value, figure out which direction it is pointing and scale it accordingly.
