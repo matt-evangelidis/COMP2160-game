@@ -15,10 +15,13 @@ public class Health : MonoBehaviour
 	}
 	public int smokeThreshold;
 	
+	public AnalyticsManager analytics;
+	
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+		analytics = GameObject.Find("/AnalyticsManager").GetComponent<AnalyticsManager>();
     }
 
     // Update is called once per frame
@@ -28,11 +31,6 @@ public class Health : MonoBehaviour
 		{
 			// produce smoke
 		}
-		
-		if(currentHealth <= 0)
-		{
-			// explode and die
-		}
     }
 	
 	void OnCollisionEnter(Collision collision)
@@ -41,6 +39,13 @@ public class Health : MonoBehaviour
 		if(collisionPower > 10f)
 		{
 			Damage((int)collisionPower);
+		}
+		
+		// This was previously in Update(), but the analytics task needs the name of the collider that killed the player
+		if(currentHealth <= 0)
+		{
+			//explode and die
+			analytics.PlayerDied(transform.position, collision.gameObject.name);
 		}
 	}
 	

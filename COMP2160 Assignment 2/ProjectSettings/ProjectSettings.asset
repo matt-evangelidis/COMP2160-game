@@ -652,10 +652,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: ed40fcfc-d73e-45c4-9025-22b758f14911
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: COMP2160 Assignment 2
+  organizationId: codster76
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

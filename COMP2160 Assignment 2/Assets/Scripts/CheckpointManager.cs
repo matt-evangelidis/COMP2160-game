@@ -8,6 +8,8 @@ public class CheckpointManager : MonoBehaviour
     public Checkpoint[] checkpointArray;
     private Checkpoint currentCheckPoint;
     private int counter = 0;
+	
+	public AnalyticsManager analytics;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,8 @@ public class CheckpointManager : MonoBehaviour
         {
             Debug.Log("No Checkpoints Found");
         }
+		
+		analytics = GameObject.Find("/AnalyticsManager").GetComponent<AnalyticsManager>();
     }
 
     // Update is called once per frame
@@ -47,6 +51,8 @@ public class CheckpointManager : MonoBehaviour
             Debug.Log("Counter: " + counter);
             FindObjectOfType<MenuHandler>().GameOver();
             gameObject.SetActive(false);
+			
+			analytics.GameOver();
         }
 
         else if (counter < checkpointArray.Length)

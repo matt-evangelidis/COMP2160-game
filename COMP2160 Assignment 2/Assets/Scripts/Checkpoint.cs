@@ -20,6 +20,8 @@ public class Checkpoint : MonoBehaviour
         get { return timeStored; }
         set { timeStored = value; }
     }
+	
+	public AnalyticsManager analytics;
 
 
     // Start is called before the first frame update
@@ -27,6 +29,11 @@ public class Checkpoint : MonoBehaviour
     {
         mesh = GetComponent<MeshRenderer>();
     }
+	
+	void Start()
+	{
+		analytics = GameObject.Find("/AnalyticsManager").GetComponent<AnalyticsManager>();
+	}
 
     // Update is called once per frame
     void Update()
@@ -56,10 +63,12 @@ public class Checkpoint : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
+    {	
 		// The player is the only object checkpoints can collide with, so we can safely use GetComponent here without any checks
 		if(current)
 		{
+			// This needs to be recorded here because the analytics task needs the player's current health
+			analytics.CheckpointReached(other.gameObject.GetComponent<Health>().CurrentHealth);
 			other.gameObject.GetComponent<Health>().Heal(10);
 		}
 		
