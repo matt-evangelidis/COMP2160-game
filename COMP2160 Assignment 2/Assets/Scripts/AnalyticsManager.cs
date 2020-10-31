@@ -14,11 +14,6 @@ public class AnalyticsManager : MonoBehaviour
         AnalyticsEvent.GameStart();
     }
 	
-	void Update()
-	{
-		
-	}
-	
 	public void PlayerDied(Vector3 deathPosition, string killingObject)
 	{
 		String timeText = String.Format("{0:D2}:{1:D2}:{2:D2}", time.Timer.Minutes, time.Timer.Seconds, time.Timer.Milliseconds);
