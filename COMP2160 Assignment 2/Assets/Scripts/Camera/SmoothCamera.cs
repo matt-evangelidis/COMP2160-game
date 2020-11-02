@@ -27,12 +27,15 @@ public class SmoothCamera : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        //set update position and rotation
         newPos = target.position + target.velocity;
         newRot = target.rotation * Quaternion.Euler(target.velocity);
 
+        //linearly interpolate for position and rotation
         Vector3 posOffset = Vector3.Lerp(oldPos, newPos, smoothing * Time.deltaTime);
         Quaternion rotOffset = Quaternion.Lerp(oldRot, newRot, smoothing * Time.deltaTime);
 
+        //set
         transform.position = posOffset;
         transform.rotation = rotOffset;
 
