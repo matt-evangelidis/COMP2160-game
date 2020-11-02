@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
 	public MenuHandler menu;
 
 	private bool dead;
-	private float timer = 1;
+	private float timer = 0.7f;
 	
     // Start is called before the first frame update
     void Start()
@@ -31,16 +31,8 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
 		analytics = GameObject.Find("/AnalyticsManager").GetComponent<AnalyticsManager>();
 
-		smoke = transform.Find("Smoke Effect").GetComponent<ParticleSystem>();
-		explosion = transform.Find("Explosion Effect").GetComponent<ParticleSystem>();
-
 		smoke.Pause();
 		explosion.Pause();
-		
-
-		Debug.Log(smoke.ToString());
-		Debug.Log(explosion.ToString());
-
 	}
 
     // Update is called once per frame
@@ -70,14 +62,13 @@ public class Health : MonoBehaviour
 		float collisionPower = collision.impulse.magnitude;
 		if(collisionPower > 10f)
 		{
-			Damage((int)collisionPower*100);
+			Damage((int)collisionPower);
 		}
 		
 		// This was previously in Update(), but the analytics task needs the name of the collider that killed the player
 		if(currentHealth <= 0)
 		{
-			//explode and die
-			dead = true;
+			dead = true;//set death-flag for explosion and reset timer
 			explosion.Play();
 			analytics.PlayerDied(transform.position, collision.gameObject.name);
 		}

@@ -12,6 +12,10 @@ public class MenuHandler : MonoBehaviour
     private bool gameOver = false;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
     void Start()
     {
         pauseMenu.SetActive(false);
@@ -51,7 +55,7 @@ public class MenuHandler : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
         gameOverMenu.SetActive(true);
         
     }
