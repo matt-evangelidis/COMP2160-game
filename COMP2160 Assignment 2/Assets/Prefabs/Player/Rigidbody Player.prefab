@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8965388736976077041}
   - component: {fileID: 8965388736976077051}
   m_Layer: 9
-  m_Name: Player 1
+  m_Name: Rigidbody Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1500
   rotation: 5000
+  hillSlideSpeed: 300
 --- !u!114 &8965388736976077051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,3 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   smokeThreshold: 0
+  smoke: {fileID: 4911250288468948206, guid: 4ddfe3cff78e6f943ba5d72db1e069ae, type: 3}
+  explosion: {fileID: 1099859407123328140, guid: 8d30f2f2a2940c442b960931a8d44083,
+    type: 3}
+  analytics: {fileID: 0}

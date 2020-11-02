@@ -5,7 +5,8 @@ using UnityEngine;
 public class SmoothCamera : MonoBehaviour
 {
     public Rigidbody target;
-    public float smoothing = 0.5f;
+    public float posSmoothing = 0.5f;
+    public float rotSmoothing = 0.5f;
     public LayerMask groundLayer;
 
     private Vector3 oldPos;
@@ -32,8 +33,8 @@ public class SmoothCamera : MonoBehaviour
         newRot = target.rotation * Quaternion.Euler(target.velocity);
 
         //linearly interpolate for position and rotation
-        Vector3 posOffset = Vector3.Lerp(oldPos, newPos, smoothing * Time.deltaTime);
-        Quaternion rotOffset = Quaternion.Lerp(oldRot, newRot, smoothing * Time.deltaTime);
+        Vector3 posOffset = Vector3.Lerp(oldPos, newPos, posSmoothing * Time.deltaTime);
+        Quaternion rotOffset = Quaternion.Lerp(oldRot, newRot, rotSmoothing * Time.deltaTime);
 
         //set
         transform.position = posOffset;
@@ -50,4 +51,5 @@ public class SmoothCamera : MonoBehaviour
         oldRot = rotOffset;
 
     }
+
 }

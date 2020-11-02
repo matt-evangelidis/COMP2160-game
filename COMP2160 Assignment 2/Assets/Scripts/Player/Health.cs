@@ -13,7 +13,10 @@ public class Health : MonoBehaviour
 			return currentHealth;
 		}
 	}
-	public int smokeThreshold;
+	public int smokeThreshold = 50;
+
+	public ParticleSystem smoke;
+	public ParticleSystem explosion;
 	
 	public AnalyticsManager analytics;
 	
@@ -22,14 +25,26 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
 		analytics = GameObject.Find("/AnalyticsManager").GetComponent<AnalyticsManager>();
-    }
+
+		smoke = transform.Find("Smoke Effect").GetComponent<ParticleSystem>();
+		explosion = transform.Find("Explosion Effect").GetComponent<ParticleSystem>();
+
+		smoke.Pause();
+		explosion.Pause();
+		
+
+		Debug.Log(smoke.ToString());
+		Debug.Log(explosion.ToString());
+
+	}
 
     // Update is called once per frame
     void Update()
     {
-		if(currentHealth < smokeThreshold)
+		if(currentHealth <= smokeThreshold)
 		{
 			// produce smoke
+			smoke.Play();
 		}
     }
 	
@@ -45,6 +60,7 @@ public class Health : MonoBehaviour
 		if(currentHealth <= 0)
 		{
 			//explode and die
+			explosion.Play();
 			analytics.PlayerDied(transform.position, collision.gameObject.name);
 		}
 	}
