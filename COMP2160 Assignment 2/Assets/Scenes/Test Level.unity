@@ -545,7 +545,37 @@ PrefabInstance:
     - target: {fileID: 3725950948289290304, guid: dc0c8999c99d38c46bf26f9b11720874,
         type: 3}
       propertyPath: smoothing
-      value: 0.1
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725950948289290304, guid: dc0c8999c99d38c46bf26f9b11720874,
+        type: 3}
+      propertyPath: distance.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725950948289290304, guid: dc0c8999c99d38c46bf26f9b11720874,
+        type: 3}
+      propertyPath: distance.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725950948289290304, guid: dc0c8999c99d38c46bf26f9b11720874,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725950948289290304, guid: dc0c8999c99d38c46bf26f9b11720874,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725950948289290304, guid: dc0c8999c99d38c46bf26f9b11720874,
+        type: 3}
+      propertyPath: rotSmoothing
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725950948289290304, guid: dc0c8999c99d38c46bf26f9b11720874,
+        type: 3}
+      propertyPath: posSmoothing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3725950948289290317, guid: dc0c8999c99d38c46bf26f9b11720874,
         type: 3}
@@ -802,6 +832,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8965388737398370082}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1973679150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3725950948289290317, guid: dc0c8999c99d38c46bf26f9b11720874,
+    type: 3}
+  m_PrefabInstance: {fileID: 1109590936}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1973679154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973679150}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63dd6964667cf37409a9bf36144e1a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1767223256}
+  smoothTime: 1
+  defaultDistance: {x: 0, y: 0, z: -2}
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!1001 &8965388737398370082
 PrefabInstance:
   m_ObjectHideFlags: 0

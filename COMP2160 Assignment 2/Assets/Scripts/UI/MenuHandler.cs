@@ -9,6 +9,8 @@ public class MenuHandler : MonoBehaviour
     public GameObject gameOverMenu;
     private Scene scene;
 
+    private bool gameOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,7 @@ public class MenuHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && !gameOver)
         {
             if (!pauseMenu.activeInHierarchy)
             {
@@ -48,12 +50,15 @@ public class MenuHandler : MonoBehaviour
 
     public void GameOver()
     {
-        Time.timeScale = 0;
+        gameOver = true;
+        //Time.timeScale = 0;
         gameOverMenu.SetActive(true);
+        
     }
 
     public void Restart()
     {
+        Debug.Log("Restart triggered");
         Time.timeScale = 1;
         SceneManager.LoadScene(scene.name);
     }

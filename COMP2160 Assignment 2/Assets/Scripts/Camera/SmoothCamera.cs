@@ -29,23 +29,23 @@ public class SmoothCamera : MonoBehaviour
     void LateUpdate()
     {
         //set update position and rotation
-        newPos = target.position + target.velocity;
+        newPos = target.position - target.velocity;
         newRot = target.rotation * Quaternion.Euler(target.velocity);
 
         //linearly interpolate for position and rotation
-        Vector3 posOffset = Vector3.Lerp(oldPos, newPos, posSmoothing * Time.deltaTime);
-        Quaternion rotOffset = Quaternion.Lerp(oldRot, newRot, rotSmoothing * Time.deltaTime);
+        Vector3 posOffset = Vector3.LerpUnclamped(oldPos, newPos, posSmoothing * Time.deltaTime);
+        Quaternion rotOffset = Quaternion.LerpUnclamped(oldRot, newRot, rotSmoothing * Time.deltaTime);
 
         //set
-        transform.position = posOffset;
+        transform.position = posOffset;//Vector3.ClampMagnitude(posOffset, 0.1f);
         transform.rotation = rotOffset;
-
+/*
         Ray ray = new Ray(target.position, Vector3.down);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
         {
             transform.position = new Vector3(posOffset.x, hit.point.y, posOffset.z);
-        }
+        }*/
 
         oldPos = posOffset;
         oldRot = rotOffset;
