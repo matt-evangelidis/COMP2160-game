@@ -1,12 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuHandler : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
+    public CheckpointManager manager;
+    private Text gameOverText;
+    private Text gameOverList;
     private Scene scene;
 
     private bool gameOver = false;
@@ -18,6 +23,12 @@ public class MenuHandler : MonoBehaviour
     }
     void Start()
     {
+        gameOverText = gameOverMenu.transform.Find("Game Over Text").GetComponent<Text>();
+        Debug.Log(gameOverText.text.ToString());
+
+        gameOverList = gameOverMenu.transform.Find("Game Over List").GetComponent<Text>();
+        Debug.Log(gameOverList.text.ToString());
+
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         scene = SceneManager.GetActiveScene();
@@ -52,11 +63,29 @@ public class MenuHandler : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-    public void GameOver()
+    public void GameOver(bool dead)
     {
-        gameOver = true;
-        Time.timeScale = 0;
-        gameOverMenu.SetActive(true);
+        if (dead)
+        {
+            gameOver = true;
+            Time.timeScale = 0;
+            gameOverMenu.SetActive(true);
+
+            gameOverText.text = "You Died!";
+
+            Checkpoint[] array = manager.ReturnCheckpoints();
+
+            foreach (Checkpoint i in array)
+            {
+                gameOverList.text += "Checkpoint " + i + ": " + i.TimeStored + Environment.NewLine;
+            }
+        }
+        else
+        {
+            gameOver = true;
+            Time.timeScale = 0;
+            gameOverMenu.SetActive(true);
+        }
         
     }
 

@@ -37,6 +37,11 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
+    public Checkpoint[] ReturnCheckpoints()
+    {
+        return checkpointArray;
+    }
+
     public void SetCheckpoint()
     {
         checkpointArray[counter].Current = true;
@@ -49,10 +54,10 @@ public class CheckpointManager : MonoBehaviour
         if (counter >= checkpointArray.Length -1)
         {
             Debug.Log("Counter: " + counter);
-            FindObjectOfType<MenuHandler>().GameOver();
-            gameObject.SetActive(false);
-			
+            FindObjectOfType<MenuHandler>().GameOver(false);
 			analytics.GameOver();
+			
+            gameObject.SetActive(false);
         }
 
         else if (counter < checkpointArray.Length)

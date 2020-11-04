@@ -52,7 +52,7 @@ public class Health : MonoBehaviour
 			}
 			else
 			{
-				menu.GameOver();
+				menu.GameOver(dead);
 			}
 		}
     }

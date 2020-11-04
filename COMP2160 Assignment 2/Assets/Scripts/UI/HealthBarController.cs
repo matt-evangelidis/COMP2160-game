@@ -26,33 +26,5 @@ public class HealthBarController : MonoBehaviour
     void Update()
     {
         healthBar.value = health.CurrentHealth;
-
-        if (Input.GetKey(KeyCode.KeypadPlus))
-        {
-            changeHP(1);
-        }
-        if (Input.GetKey(KeyCode.KeypadMinus))
-        {
-            changeHP(-1);
-        }
-        //changeHP(-1);
-    }
-
-    public void changeHP(int hp)
-    {
-        if (currentHP < minHP)
-        {
-            currentHP = minHP;
-        }
-
-        else if (currentHP > maxHP)
-        {
-            currentHP = maxHP;
-        }
-
-        else
-        {
-            currentHP += hp;
-        }
     }
 }
