@@ -14,6 +14,7 @@ public class BasicCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = target.position;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, 10);
+        transform.rotation = target.rotation;
     }
 }
