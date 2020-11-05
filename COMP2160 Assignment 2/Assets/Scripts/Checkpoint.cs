@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    public int healthAmount = 10;
     private MeshRenderer mesh;
     public Material glowMaterial;
     public Material regularMaterial;
+
     private bool current;
     public bool Current
     {
@@ -35,12 +37,6 @@ public class Checkpoint : MonoBehaviour
 		analytics = GameObject.Find("/AnalyticsManager").GetComponent<AnalyticsManager>();
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void SetGlow()
     {
         mesh.material = glowMaterial;
@@ -53,13 +49,10 @@ public class Checkpoint : MonoBehaviour
 
     public void HitCheckPoint()
     {
-        if (current)
-        {
-            timeStored = Time.time;
-            Debug.Log("Checkpoint Hit At Time: " + timeStored);
-            current = false;
-            SetRegular();
-        }
+        timeStored = Time.timeSinceLevelLoad;
+        Debug.Log("Checkpoint Hit At Time: " + timeStored);
+        current = false;
+        SetRegular();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -69,9 +62,10 @@ public class Checkpoint : MonoBehaviour
 		{
 			// This needs to be recorded here because the analytics task needs the player's current health
 			analytics.CheckpointReached(other.gameObject.GetComponent<Health>().CurrentHealth);
-			other.gameObject.GetComponent<Health>().Heal(10);
+			other.gameObject.GetComponent<Health>().Heal(healthAmount);
+            
+            HitCheckPoint();
 		}
 		
-        HitCheckPoint();
     }
 }

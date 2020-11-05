@@ -23,13 +23,20 @@ public class Health : MonoBehaviour
 	public MenuHandler menu;
 
 	private bool dead;
-	private float timer = 0.7f;
+	private float timer;
 	
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
 		analytics = GameObject.Find("/AnalyticsManager").GetComponent<AnalyticsManager>();
+
+		//get particle systems
+		smoke = transform.Find("Smoke Effect").GetComponent<ParticleSystem>();
+		explosion = transform.Find("Explosion Effect").GetComponent<ParticleSystem>();
+
+		//set delay timer to the duration of the particle system
+		timer = explosion.main.duration;
 
 		smoke.Pause();
 		explosion.Pause();
@@ -46,6 +53,7 @@ public class Health : MonoBehaviour
 
 		if(dead)
 		{
+			//slight delay timer to allow explosion effect to play before GameOver triggers
 			if (timer > 0)
 			{
 				timer -= Time.deltaTime;
@@ -53,12 +61,14 @@ public class Health : MonoBehaviour
 			else
 			{
 				menu.GameOver(dead);
+				GetComponent<Health>().enabled = false;
 			}
 		}
     }
 	
 	void OnCollisionEnter(Collision collision)
 	{
+		//apply damage to the player
 		float collisionPower = collision.impulse.magnitude;
 		if(collisionPower > 10f)
 		{
