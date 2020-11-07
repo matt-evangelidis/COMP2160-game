@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
 		}
 	}
 	public int smokeThreshold = 50;
+	public float collisionThreshold = 10f;
 
 	public ParticleSystem smoke;
 	public ParticleSystem explosion;
@@ -70,7 +71,7 @@ public class Health : MonoBehaviour
 	{
 		//apply damage to the player
 		float collisionPower = collision.impulse.magnitude;
-		if(collisionPower > 10f)
+		if(collisionPower > collisionThreshold)
 		{
 			Damage((int)collisionPower);
 		}
