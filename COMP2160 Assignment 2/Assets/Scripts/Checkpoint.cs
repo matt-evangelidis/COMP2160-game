@@ -9,18 +9,46 @@ public class Checkpoint : MonoBehaviour
     public Material glowMaterial;
     public Material regularMaterial;
 
+    private bool hit;
+    public bool Hit
+    {
+        get
+        {
+            return hit;
+        }
+
+        set
+        {
+            hit = value;
+        }
+    }
+
     private bool current;
     public bool Current
     {
-        get { return current; }
-        set { current = value; }
+        get 
+        { 
+            return current; 
+        }
+        
+        set 
+        { 
+            current = value; 
+        }
     }
 
     private float timeStored;
     public float TimeStored
     {
-        get { return timeStored; }
-        set { timeStored = value; }
+        get 
+        { 
+            return timeStored;
+        }
+        
+        set 
+        { 
+            timeStored = value; 
+        }
     }
 	
 	public AnalyticsManager analytics;
@@ -52,6 +80,7 @@ public class Checkpoint : MonoBehaviour
         timeStored = Time.timeSinceLevelLoad;
         Debug.Log("Checkpoint Hit At Time: " + timeStored);
         current = false;
+        hit = true;
         SetRegular();
     }
 

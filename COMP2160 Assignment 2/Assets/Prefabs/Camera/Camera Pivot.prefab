@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3725950948289290317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.5, z: 1.5}
   m_Children:
   - {fileID: 3725950948626668913}
   m_Father: {fileID: 0}
@@ -80,8 +80,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothTime: 0.15
-  defaultDistance: {x: 0, y: 0, z: -0.5}
+  defaultDistance: {x: 0, y: 0, z: -0.2}
   velocity: {x: 0, y: 0, z: 0}
+  minDistance: 0.15
   maxDistance: 1.5
 --- !u!1 &3725950948626668926
 GameObject:
@@ -109,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3725950948626668926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: -10}
+  m_LocalPosition: {x: 0, y: 4, z: -4.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3725950948289290319}
