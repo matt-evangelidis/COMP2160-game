@@ -99,11 +99,19 @@ public class MenuHandler : MonoBehaviour
 
         for (int i = 0; i < array.Length; i++)
         {
-            //format time stored in checkpoint
-            TimeSpan timer = TimeSpan.FromSeconds(array[i].TimeStored);
-            string text = string.Format("{0:D2}:{1:D2}:{2:D2}", timer.Minutes, timer.Seconds, timer.Milliseconds);
-            
-            gameOverList.text += "Checkpoint " + (i+1) + ": " + text + Environment.NewLine;
+            if (array[i].Hit)
+            {
+                //format time stored in checkpoint
+                TimeSpan timer = TimeSpan.FromSeconds(array[i].TimeStored);
+                string text = string.Format("{0:D2}:{1:D2}:{2:D2}", timer.Minutes, timer.Seconds, timer.Milliseconds);
+
+                gameOverList.text += "Checkpoint " + (i + 1) + ": " + text + Environment.NewLine;
+            }
+
+            else
+            {
+                gameOverList.text += "Checkpoint " + (i + 1) + ": Incomplete" + Environment.NewLine;
+            }
         }
     }
 
